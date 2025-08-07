@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Member</title>
+
+  <!-- ✅ EmailJS Script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "gst24VbcgfiGxT9LI", // ✅ Your public key
+      });
+    })();
+  </script>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('17330.png'); /* ✅ Ensure this image is in the same folder */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-container {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      max-width: 500px;
+      width: 90%;
+      margin: 60px auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-size: 1em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #0044cc;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0033aa;
+    }
+
+    footer {
+      background-color: #0044cc;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
+      font-weight: normal;
+      margin-top: auto;
+    }
+
+    /* ✅ Responsive Design for Small Devices */
+    @media screen and (max-width: 480px) {
+      h1 {
+        font-size: 1.8em;
+      }
+
+      .form-container {
+        padding: 20px;
+        margin: 30px auto;
+      }
+
+      input, button {
+        font-size: 0.95em;
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h1>Add Member</h1>
+    <form id="memberForm">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="uid">UID</label>
+      <input type="text" id="uid" name="uid" required>
+
+      <label for="email">Email ID</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" name="mobile" required>
+
+      <!-- Hidden field to send just dummy file name -->
+      <input type="hidden" id="photoFileName" name="photoFileName" value="N/A">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <footer>
+    © <span id="year"></span> IRS ESPORTS. All rights reserved. This site’s content may not be copied or reused without permission.
+  </footer>
+
+  <script>
+    // ✅ Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ✅ Handle form submission
+    document.getElementById("memberForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      document.getElementById("photoFileName").value = "N/A";
+
+      emailjs.sendForm("service_m0duisn", "template_zqxl5s6", this)
+        .then(() => {
+          alert("✅ Member added successfully!\nDetails sent to irsesportss@gmail.com");
+          this.reset();
+        }, (error) => {
+          console.error("FAILED...", error);
+          alert("❌ Submission failed. Please try again.");
+        });
+    });
+  </script>
+</body>
+</html>

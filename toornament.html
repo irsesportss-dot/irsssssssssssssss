@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toornaments</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('17330.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: white;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      padding: 40px;
+      gap: 40px;
+    }
+
+    .left, .right {
+      flex: 1;
+    }
+
+    .left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .right {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      flex-direction: column;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: 2em;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    p, ul {
+      font-size: 1.2em;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 40px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #0044cc;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9em;
+      font-weight: normal;
+    }
+
+    .clickable-img {
+      width: 200px;
+      height: 120px;
+      object-fit: cover;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .clickable-img:hover {
+      transform: scale(1.05);
+    }
+
+    .game-title {
+      font-size: 1.6em;
+      font-weight: bold;
+      text-align: center;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      text-shadow: none;
+      background: linear-gradient(to right, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5); /* FF gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 5px;
+    }
+
+    .pointing-emoji {
+      font-size: 2.2em;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    .banner-img {
+      width: 400px;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid white;
+      box-shadow: 0 0 10px #000;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      margin-top: -30px;
+    }
+
+    .banner-img:hover {
+      transform: scale(1.03);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+      }
+
+      .clickable-img {
+        width: 90%;
+        max-width: 320px;
+        height: auto;
+      }
+
+      .banner-img {
+        width: 90%;
+        max-width: 350px;
+        height: auto;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h2 {
+        font-size: 1.5em;
+      }
+
+      p, ul {
+        font-size: 1em;
+        padding: 0 10px;
+      }
+
+      ul {
+        padding-left: 25px;
+      }
+
+      .game-title {
+        font-size: 1.3em;
+      }
+
+      .pointing-emoji {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left">
+      <h1>Toornaments</h1>
+      <p>
+        To take part in the Toornament you need to click on the image of the Toornament to fill the Form.
+      </p>
+      <h2>Rules:</h2>
+      <ul>
+        <li>All payments must be made within the form itself. Any payments made outside the form will not be accepted.</li>
+        <li>Only online payments are allowed.</li>
+        <li>We aim to maintain a fair and transparent community, so every participant must be ready to share their screen upon request.</li>
+        <li>Refusal to share the screen will result in disqualification.</li>
+        <li>Rules for individual games are mentioned in the poster or image related to the specific tournament you wish to join.</li>
+        <li>You can click on the image to proceed and view more details.</li>
+      </ul>
+    </div>
+
+    <div class="right">
+      <!-- ✅ Free Fire Banner -->
+      <img src="ChatGPT Image Aug 7, 2025, 07_28_30 PM.png" alt="Free Fire Max Banner" class="banner-img">
+
+      <!-- ✅ Game Title with gradient color -->
+      <div class="game-title">Free Fire Max</div>
+
+      <!-- ✅ Emoji pointing downward -->
+      <div class="pointing-emoji">👇</div>
+
+      <!-- ✅ Clickable Tournament Image -->
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkCRXscwN3rSNJ6OuofCwFwML9kNUAWMfNmfemOC8GS2k-9Q/viewform?usp=dialog" target="_blank">
+        <img src="garena-Picsart-AiImageEnhancer-removebg-preview.png" alt="Tournament 1" class="clickable-img">
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Your Brand. All rights reserved. No part of this site may be copied or reproduced without permission.<br>
+    © 2025 आपका ब्रांड। सर्वाधिकार सुरक्षित। इस साइट की किसी भी सामग्री की नकल बिना अनुमति के प्रतिबंधित है।
+  </footer>
+
+</body>
+</html>
