@@ -21,15 +21,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
-      background-color: #6d37e2;
+      padding: 5px 20px;
+      background-color: #000000;
       color: white;
       flex-wrap: wrap;
     }
 
-    .logo img {
-      height: 150px;
-      animation: fadeIn 2s ease-out;
+    /* IRS Esports Text Styling */
+    .logo-text {
+      font-family: 'Impact', 'Segoe UI', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px rgba(255,255,255,0.3);
+      animation: fadeIn 1.5s ease-out;
     }
 
     @keyframes fadeIn {
@@ -41,23 +48,23 @@
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 10px;
       justify-content: center;
     }
 
     header ul li {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     header ul li a {
       text-decoration: none;
       color: white;
       font-weight: 600;
-      font-size: 16px;
-      padding: 10px 20px;
-      border-radius: 8px;
+      font-size: 15px;
+      padding: 8px 15px;
+      border-radius: 6px;
       background-color: rgba(255, 255, 255, 0.1);
       border: 2px solid white;
       box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
@@ -75,7 +82,7 @@
       position: relative;
       text-align: center;
       min-height: 80vh;
-      background: url('17330.png') no-repeat center center/cover;
+      background: url('back.jpg') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -94,7 +101,7 @@
     }
 
     main p {
-      color: white;
+      color: rgb(0, 0, 0);
       font-size: 1.5rem;
       font-weight: bold;
       margin: 20px 0;
@@ -142,6 +149,22 @@
       font-size: 14px;
     }
 
+    /* ✅ New Copyright Info Section */
+    .copyright-info {
+      background-color: #000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .copyright-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    .copyright-info li {
+      margin: 5px 0;
+    }
+
     /* ✅ Contact Box Styles */
     .contact-box {
       display: none;
@@ -169,55 +192,74 @@
       text-decoration: underline;
     }
 
+    /* ✅ Mobile Slide Menu Styles */
+    .mobile-menu-toggle {
+      display: none;
+    }
+    .mobile-menu-label {
+      display: none;
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #000;
+      color: #fff;
+      padding: 10px;
+      border-radius: 8px 0 0 8px;
+      cursor: pointer;
+      z-index: 1001;
+      font-size: 20px;
+      user-select: none;
+    }
+    .mobile-slide-menu {
+      position: fixed;
+      top: 0;
+      right: -200px;
+      width: 200px;
+      height: 100%;
+      background: white;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+      transition: right 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 10px;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .mobile-slide-menu a {
+      color: black;
+      padding: 10px;
+      border: 1px solid #000;
+      border-radius: 6px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .mobile-menu-toggle:checked ~ .mobile-slide-menu {
+      right: 0;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
+        justify-content: center;
       }
-
-      .logo img {
-        height: 120px;
-      }
-
       header ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        display: none;
       }
-
-      main p {
-        font-size: 1.2rem;
+      .mobile-menu-label {
+        display: block;
       }
-
-      main img.center-animated {
-        height: 200px;
-      }
-
-      .search-wrapper {
-        width: 100%;
-        margin-top: 20px;
-      }
-
-      .search-wrapper input {
-        width: 100%;
-        border-radius: 5px;
-      }
-
-      .search-wrapper button {
-        top: 50%;
-        right: 10px;
-        transform: translateY(-50%);
+      .logo-text {
+        font-size: 1.8rem;
+        text-align: center;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="ssiirr-Picsart-AiImageEnhancer.png" alt="Logo" />
-    </div>
+    <!-- ✅ Replaced Logo Image with Styled Text -->
+    <div class="logo-text">IRS Esports</div>
     <ul>
       <li>
         <a href="toornament.html" target="_blank">Tournaments</a>
@@ -229,9 +271,20 @@
     </ul>
   </header>
 
+  <!-- ✅ Mobile Slide Menu HTML -->
+  <input type="checkbox" id="menuToggle" class="mobile-menu-toggle" />
+  <label for="menuToggle" class="mobile-menu-label">&#9776;</label>
+  <div class="mobile-slide-menu">
+    <a href="toornament.html" target="_blank">Tournaments</a>
+    <a href="members.html" target="_blank">Add Members</a>
+    <a href="#" id="loginBtnMobile">Login</a>
+    <a href="#" id="signupBtnMobile">Signup</a>
+    <a href="#" id="contactLinkMobile">Contact</a>
+  </div>
+
   <main>
     <div>
-      <img src="ready.png" class="center-animated" alt="center-image" />
+      <img src="ChatGPT_Image_Aug_13__2025__12_51_03_PM-removebg-preview-Picsart-AiImageEnhancer.png" class="center-animated" alt="center-image" />
     </div>
     <p>Discover more about us</p>
 
@@ -253,6 +306,16 @@
 
   <footer>&copy; <span id="year"></span> All rights reserved</footer>
 
+  <!-- ✅ New Copyright Section -->
+  <div class="copyright-info">
+    <ul>
+      <li>Unauthorized reproduction of content is prohibited.</li>
+      <li>All trademarks and logos are property of IRS Esports.</li>
+      <li>Use of our platform implies agreement to our terms.</li>
+      <li>For inquiries, contact us via official channels only.</li>
+    </ul>
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -267,11 +330,17 @@
       }
     });
 
-    // ✅ Contact Toggle
+    // Contact Toggle (for PC)
     const contactBtn = document.getElementById("contactLink");
     const contactBox = document.getElementById("contactBox");
-
     contactBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      contactBox.style.display = contactBox.style.display === "block" ? "none" : "block";
+    });
+
+    // Contact Toggle (for Mobile)
+    const contactBtnMobile = document.getElementById("contactLinkMobile");
+    contactBtnMobile.addEventListener("click", function (e) {
       e.preventDefault();
       contactBox.style.display = contactBox.style.display === "block" ? "none" : "block";
     });
